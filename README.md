@@ -175,6 +175,6 @@ Se utiliza un diseño consistente para todas las páginas mediante una plantilla
 
 - **Nombre**: Carlos Estiven Marin Ruiz
 - **Email**: cemarinr@itc.edu.co
-- **LinkedIn**: [linkedin.com/in/carlos-marin](www.linkedin.com/in/estivenmarinn)
+- **LinkedIn**: [www.linkedin.com/in/estivenmarin](www.linkedin.com/in/estivenmarin)
 
 👋¡Gracias por visitar el proyecto!
