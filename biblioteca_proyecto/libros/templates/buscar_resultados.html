@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+    <h1>Resultados de la búsqueda</h1>
+
+    {% if query %}
+        <p>Resultados para: "{{ query }}"</p>
+    {% endif %}
+
+    {% if resultados %}
+        <ul>
+            {% for libro in resultados %}
+                <li>
+                    {{ libro.titulo }} - {{ libro.autor }}
+                    <a href="{% url 'editar_libro' libro.pk %}">Editar</a>
+                    <a href="{% url 'eliminar_libro' libro.pk %}">Eliminar</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron libros que coincidan con tu búsqueda.</p>
+    {% endif %}
+    
+    <a href="{% url 'lista_libros' %}">Volver a la lista de libros</a>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Mi Sitio Web{% endblock %}</title>
+    <link rel="stylesheet" href="{% static '/css/estilos.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+
+         
+
+        
+        <ul>
+            <li><a href="{% url 'lista_libros' %}">Inicio</a>
+                {% if user.is_authenticated %}
+                <form method="post" action="{% url 'logout' %}" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-button">Logout</button>
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+            {% endif %}
+            
+        </ul>
+        <!-- Buscador de Libros -->
+        <form action="{% url 'buscar_libros' %}" method="get" class="buscador-libros">
+            <input type="text" name="q" placeholder="Buscar libros..." class="input-buscador">
+            <button type="submit" class="boton-buscador">Buscar</button>
+        </form>
+        <!-- Botón Modo Oscuro -->
+        <label class="modo-oscuro-toggle">
+            <input type="checkbox" id="modoOscuroSwitch">
+            <span class="modo-oscuro-slider"></span>
+        </label>
+    </nav>
+
+    <div class="contenedor">
+        {% block contenido %}
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="alert {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endblock %}
+    </div>
+
+    <script>
+        // Script para alternar el modo oscuro
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleSwitch = document.getElementById('modoOscuroSwitch');
+            const body = document.body;
+
+            // Cargar preferencia inicial del usuario
+            const isDarkMode = localStorage.getItem('modoOscuro') === 'true';
+            body.classList.toggle('modo-oscuro', isDarkMode);
+            toggleSwitch.checked = isDarkMode;
+
+            // Alternar modo oscuro
+            toggleSwitch.addEventListener('change', () => {
+                const isChecked = toggleSwitch.checked;
+                body.classList.toggle('modo-oscuro', isChecked);
+                localStorage.setItem('modoOscuro', isChecked);
+            });
+        });
+    </script>
+</body>
+</html>

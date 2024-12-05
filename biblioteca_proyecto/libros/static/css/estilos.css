@@ -1,0 +1,279 @@
+/* Estilo general del cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+}
+
+/* Contenedor principal */
+.contenedor {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar */
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+/* Botón alineado a la derecha sin descentrar el li */
+.modo-oscuro-toggle {
+    margin-left: auto;
+}
+
+/* Estilo de los enlaces en modo claro */
+.navbar ul li a, .contenedor a {
+    color: #000000; /* Texto negro para el modo claro */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 4px; /* Para un diseño más suave */
+}
+
+.navbar ul li a:hover, .contenedor a:hover {
+    color: #555555; /* Cambia a gris oscuro al pasar el mouse */
+    background-color: rgba(0, 0, 0, 0.1); /* Fondo semitransparente oscuro */
+}
+
+/* Botones generales */
+button {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s, color 0.3s ease;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #e0e0e0;
+    color: #000000;
+    transform: scale(1.05);
+}
+
+body.modo-oscuro button {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.modo-oscuro button:hover {
+    background-color: #e0e0e0;
+    color: #000000;
+}
+
+/* Asegurar contraste adecuado en modo oscuro para inputs y select */
+form input,
+form textarea,
+form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.modo-oscuro form input,
+body.modo-oscuro form textarea,
+body.modo-oscuro form select {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #555;
+}
+
+.error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+/* Mensajes */
+.mensajes .alerta {
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+}
+
+.mensajes .success {
+    background-color: #28a745;
+}
+
+.mensajes .error {
+    background-color: #dc3545;
+}
+
+.mensajes .info {
+    background-color: #17a2b8;
+}
+
+/* Lista de libros */
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+ul li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul li a {
+    margin-left: 10px;
+    font-size: 0.9em;
+    color: #000000; /* Texto negro para el modo claro */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+ul li a:hover {
+    color: #555555;
+}
+
+body.modo-oscuro ul li {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #ffffff;
+}
+
+body.modo-oscuro ul li a {
+    color: #ffffff; /* Texto blanco para el modo oscuro */
+}
+
+body.modo-oscuro ul li a:hover {
+    color: #cccccc;
+}
+
+/* Estilo del interruptor (modo oscuro) */
+.modo-oscuro-toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.modo-oscuro-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.modo-oscuro-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.modo-oscuro-slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .modo-oscuro-slider {
+    background-color: #444444;
+}
+
+input:checked + .modo-oscuro-slider:before {
+    transform: translateX(26px);
+}
+
+/* Modo oscuro */
+body.modo-oscuro {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.modo-oscuro .contenedor {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+body.modo-oscuro .navbar ul li a {
+    color: #ffffff; /* Texto blanco para el modo oscuro */
+    background-color: transparent;
+}
+
+body.modo-oscuro .navbar ul li a:hover {
+    color: #cccccc; /* Cambia a gris claro al pasar el mouse */
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo semitransparente ligeramente más visible */
+}
+
+body.modo-oscuro .contenedor a {
+    color: #ffffff;
+}
+
+body.modo-oscuro .contenedor a:hover {
+    color: #cccccc;
+}
+
+/* Buscador de libros */
+.buscador-libros {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Para alinear a la derecha */
+}
+
+.input-buscador {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+}
+
+.boton-buscador {
+    padding: 5px 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    transition: background-color 0.3s ease;
+}
+
+.boton-buscador:hover {
+    background-color: #555;
+}
